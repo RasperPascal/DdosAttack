@@ -40,7 +40,7 @@ http(s) sunucusuna saldırmak için çorap4/5 proxy'lerini kullanmak için bir k
 
 # -DÜZENLEMEK
              pip3 install requests pysocks
-             git clone https://github.com/RasperPascal/-RasperPascal-Ddos-attack
+             git clone https://github.com/RasperPascal/DdosAttack/tree/main/-RasperPascal-Ddosattack
              cd CC-attack
 	
 	
